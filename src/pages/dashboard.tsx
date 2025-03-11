@@ -1,7 +1,13 @@
+import Sidebar from "../components/Sidebar";
+
 const Dashboard = () => {
   return (
-    <div>dashboard</div>
-  )
-}
+    <div className="admin-wrapper">
+      <Sidebar />
+      <main> asdad</main>
+      <ul></ul>
+    </div>
+  );
+};
 
 export default Dashboard;
