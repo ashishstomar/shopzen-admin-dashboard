@@ -66,4 +66,68 @@
       }
     }
   }
+
+  .graph-container {
+    @include flex(unset, unset, unset, 2rem);
+    padding: 0 2rem 2rem 0;
+    > div {
+      background-color: white;
+      border-radius: 12px;
+    }
+
+    .chart-revenue {
+      width: 100%;
+      padding: 1rem 3rem;
+
+      > h2 {
+        @include heading;
+        margin: 1rem 0 2rem 0.25rem;
+        text-align: center;
+      }
+    }
+
+    .inventory {
+      width: 100%;
+      max-width: 16rem;
+      @include flex(column, center, unset, 0);
+      padding-bottom: 2rem;
+      > h2 {
+        @include heading;
+        margin: 1.5rem 0 2rem 0;
+        text-align: center;
+      }
+
+      > div {
+        overflow-y: auto;
+        padding-left: 0.5rem;
+      }
+
+      .inventory-item {
+        width: 100%;
+        @include flex(row, space-between);
+        padding: 1rem;
+        > h5 {
+          letter-spacing: 1px;
+          font-weight: 300;
+        }
+        > div {
+          margin-left: auto;
+          flex: none;
+          background-color: rgb(218, 218, 218);
+          border-radius: 50px;
+          height: 0.5rem;
+          width: 6rem;
+
+          > div {
+            height: 100%;
+            border-radius: 50px;
+          }
+          > span {
+            font-weight: 700;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
 }

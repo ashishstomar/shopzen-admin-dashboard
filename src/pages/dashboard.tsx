@@ -53,6 +53,25 @@ const Dashboard = () => {
             />
           </section>
         </div>
+        <section className="graph-container">
+          <div className="chart-revenue">
+            <h2>Revenue & Transactions</h2>
+            {/* Graph */}
+          </div>
+          <div className="inventory">
+            <h2>Inventory</h2>
+            <div>
+              {inventoryData.inventoryItems.map((item) => (
+                <InventoryItem
+                  key={item.title}
+                  title={item.title}
+                  value={item.value}
+                  color={`hsl(${item.value * 4}, ${item.value}%, 50%)`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
@@ -98,6 +117,27 @@ const WidgetItem = ({
       <span style={{ color: color }}>{percent}%</span>
     </div>
   </article>
+);
+
+interface inventoryItemProps {
+  color: string;
+  value: number;
+  title: string;
+}
+
+const InventoryItem = ({ color, value, title }: inventoryItemProps) => (
+  <div className="inventory-item">
+    <h5>{title}</h5>
+    <div>
+      <div
+        style={{
+          backgroundColor: color,
+          width: `${value}%`,
+        }}
+      ></div>
+    </div>
+    <span>{value}%</span>
+  </div>
 );
 
 export default Dashboard;
