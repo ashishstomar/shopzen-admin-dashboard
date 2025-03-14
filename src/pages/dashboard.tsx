@@ -5,9 +5,9 @@ import { FaRegBell } from "react-icons/fa";
 import userImg from "../assets/user.svg";
 import inventoryData from "../assets/data.json";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
+import { BarChart } from "../components/Charts";
 
 const Dashboard = () => {
-  console.log(inventoryData);
   const [input, setInput] = useState("");
 
   return (
@@ -56,7 +56,16 @@ const Dashboard = () => {
         <section className="graph-container">
           <div className="chart-revenue">
             <h2>Revenue & Transactions</h2>
-            {/* Graph */}
+            <div>
+              <BarChart
+                data_1={[900, 400, 203, 404, 204, 402, 608]}
+                data_2={[300, 200, 103, 504, 104, 890, 444]}
+                title_1="Hello"
+                title_2="bhai"
+                bgColor_1="rgb(0,115,255)"
+                bgColor_2="rgba(53,162,235,0.8)"
+              />
+            </div>
           </div>
           <div className="inventory">
             <h2>Inventory</h2>
