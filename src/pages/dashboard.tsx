@@ -7,6 +7,7 @@ import inventoryData from "../assets/data.json";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 import { BarChart, DoughnutChart } from "../components/Charts";
 import { BiMaleFemale } from "react-icons/bi";
+import DashboardTable from "../components/DashboardTable";
 
 const Dashboard = () => {
   const [input, setInput] = useState("");
@@ -98,7 +99,7 @@ const Dashboard = () => {
               <BiMaleFemale />
             </p>
           </div>
-          <div>table{/* table */}</div>
+          <DashboardTable data={inventoryData.transactions} />
         </section>
       </main>
     </div>
