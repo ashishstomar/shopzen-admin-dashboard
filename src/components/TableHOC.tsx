@@ -10,16 +10,31 @@ function TableHOC<T extends Object>(
   columns: Column<T>[],
   data: T[],
   containerClassname: string,
-  heading: string
+  heading: string,
+  showPagination: boolean = false
 ) {
   return function HOC() {
     const options: TableOptions<T> = {
       columns,
       data,
+      initialState: {
+        pageSize: 5,
+      },
     };
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-      useTable(options, useSortBy, usePagination);
+    const {
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      page,
+      prepareRow,
+      nextPage,
+      previousPage,
+      canNextPage,
+      canPreviousPage,
+      pageCount,
+      state: { pageIndex },
+    } = useTable(options, useSortBy, usePagination);
 
     return (
       <div className={containerClassname}>
@@ -41,7 +56,7 @@ function TableHOC<T extends Object>(
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
+            {page.map((row) => {
               prepareRow(row);
 
               return (
@@ -54,6 +69,18 @@ function TableHOC<T extends Object>(
             })}
           </tbody>
         </table>
+
+        {showPagination && (
+          <div className="table-pagination">
+            <button disabled={!canPreviousPage} onClick={previousPage}>
+              ◀
+            </button>
+            <span>{`Page ${pageIndex + 1} of ${pageCount}`}</span>
+            <button disabled={!canNextPage} onClick={nextPage}>
+              ▶
+            </button>
+          </div>
+        )}
       </div>
     );
   };
