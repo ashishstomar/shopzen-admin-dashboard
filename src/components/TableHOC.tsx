@@ -1,4 +1,10 @@
-import { useTable, Column, TableOptions } from "react-table";
+import {
+  useTable,
+  Column,
+  TableOptions,
+  useSortBy,
+  usePagination,
+} from "react-table";
 
 function TableHOC<T extends Object>(
   columns: Column<T>[],
@@ -13,7 +19,7 @@ function TableHOC<T extends Object>(
     };
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-      useTable(options);
+      useTable(options, useSortBy, usePagination);
 
     return (
       <div className={containerClassname}>
@@ -21,37 +27,28 @@ function TableHOC<T extends Object>(
 
         <table className="table" {...getTableProps()}>
           <thead>
-            {headerGroups.map((headerGroup) => {
-              const { key, ...rest } = headerGroup.getHeaderGroupProps();
-              return (
-                <tr key={key} {...rest}>
-                  {headerGroup.headers.map((column) => {
-                    const { key, ...rest } = column.getHeaderProps();
-                    return (
-                      <th key={key} {...rest}>
-                        {column.render("Header")}
-                      </th>
-                    );
-                  })}
-                </tr>
-              );
-            })}
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    {column.render("Header")}
+                    {column.isSorted && (
+                      <span>{column.isSortedDesc ? " 🔼" : " 🔽"}</span>
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
           </thead>
           <tbody {...getTableBodyProps()}>
             {rows.map((row) => {
               prepareRow(row);
 
-              const { key, ...rest } = row.getRowProps();
               return (
-                <tr key={key} {...rest}>
-                  {row.cells.map((cell) => {
-                    const { key, ...rest } = cell.getCellProps();
-                    return (
-                      <td key={key} {...rest}>
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                  ))}
                 </tr>
               );
             })}
