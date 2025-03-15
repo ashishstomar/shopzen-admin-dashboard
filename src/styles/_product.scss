@@ -1,0 +1,22 @@
+@import "_mixin";
+
+.dashboard-product-box {
+  background-color: white;
+  padding: 2rem;
+  overflow: auto;
+  @include square(100%);
+}
+
+.add-product-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  @include square(2.5rem);
+  @include flex(row, center, center, 0);
+  border-radius: 50%;
+  background-color: rgb(160, 77, 255);
+  color: white;
+  &:hover {
+    opacity: 0.8;
+  }
+}
