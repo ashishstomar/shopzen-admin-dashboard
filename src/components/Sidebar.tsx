@@ -78,7 +78,7 @@ const ChartsLi = ({ location }: { location: Location }) => (
         title="Pie"
       />
       <NavItemsLi
-        url="/admin/lines"
+        url="/admin/chart/line"
         location={location}
         Icon={FaChartLine}
         title="Line"
