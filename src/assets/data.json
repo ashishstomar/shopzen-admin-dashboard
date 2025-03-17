@@ -1,0 +1,54 @@
+{
+  "inventoryItems": [
+    {
+      "title": "Phones",
+      "value": 69
+    },
+    {
+      "title": "Laptops",
+      "value": 30
+    },
+    {
+      "title": "Tablets",
+      "value": 70
+    },
+    {
+      "title": "Consoles",
+      "value": 90
+    },
+    {
+      "title": "Chargers",
+      "value": 20
+    }
+  ],
+  "transactions": [
+    {
+      "id": "sfgsdfgdeg",
+      "amount": 4000,
+      "qty": 4,
+      "discount": 300,
+      "status": "Processing"
+    },
+    {
+      "id": "egESDGGSDRG",
+      "amount": 2500,
+      "qty": 5,
+      "discount": 200,
+      "status": "Processing"
+    },
+    {
+      "id": "ASRGEDERSW",
+      "amount": 5500,
+      "qty": 4,
+      "discount": 600,
+      "status": "Processing"
+    },
+    {
+      "id": "thsdrgrdfg",
+      "amount": 3300,
+      "qty": 2,
+      "discount": 350,
+      "status": "Processing"
+    }
+  ]
+}
