@@ -254,3 +254,18 @@ a {
     transform: rotateZ(360deg);
   }
 }
+
+#indexLinkBtn {
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  font-size: 0.8rem;
+  margin: 1rem;
+  background-color: #5703ff;
+  padding: 1rem 1rem;
+  color: #fff;
+  border-radius: 50px;
+  &:hover {
+    background-color: #5703ff98;
+  }
+}

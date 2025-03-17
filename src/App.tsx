@@ -24,6 +24,14 @@ const App = () => {
     <Router>
       <Suspense fallback={<Loading />}>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <Link to="/admin/dashboard">
+                <button id="indexLinkBtn">Open Dashboard</button>
+              </Link>
+            }
+          />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/products" element={<Products />} />
           <Route path="/admin/transaction" element={<Transactions />} />
