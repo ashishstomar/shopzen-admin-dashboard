@@ -104,7 +104,7 @@ const AppsLi = ({ location }: { location: Location }) => (
         title="Coupon"
       />
       <NavItemsLi
-        url="/admin/app/coin"
+        url="/admin/app/toss"
         location={location}
         Icon={FaGamepad}
         title="Toss"
