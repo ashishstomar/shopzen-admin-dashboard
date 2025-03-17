@@ -3,7 +3,6 @@ import Sidebar from "../components/Sidebar";
 import TableHOC from "../components/TableHOC";
 import { Column } from "react-table";
 import { Link } from "react-router-dom";
-import "../styles/_product.scss";
 
 import { FaPlus } from "react-icons/fa";
 
