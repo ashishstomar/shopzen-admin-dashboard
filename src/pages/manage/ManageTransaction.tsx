@@ -1,5 +1,5 @@
 import Sidebar from "../../components/Sidebar";
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import { OrderItemType, OrderType } from "../../types";
 import { Link } from "react-router-dom";
 
@@ -65,7 +65,7 @@ const ManageTransaction = () => {
             <OrderItemCard
               name={i.name}
               photo={i.photo}
-              _id={i.id}
+              _id={i._id}
               qty={i.qty}
               price={i.price}
             />

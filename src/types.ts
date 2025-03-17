@@ -19,6 +19,6 @@ export type OrderType = {
   shippingCharge: number;
   tax: number;
   total: number;
-  orderItem: OrderItemType[];
+  orderItems: OrderItemType[];
   _id: string;
 };
