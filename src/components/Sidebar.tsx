@@ -14,7 +14,7 @@ import {
   FaGamepad,
   FaStopwatch,
 } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const Sidebar = () => {
@@ -25,6 +25,17 @@ const Sidebar = () => {
     window.innerWidth < 1100
   );
 
+  const handleResize = () => {
+    setPhoneActive(window.innerWidth < 1100);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       {phoneActive && (
