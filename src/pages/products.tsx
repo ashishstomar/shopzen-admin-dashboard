@@ -133,7 +133,7 @@ const arr: DataType[] = [
 ];
 
 const Products = () => {
-  const [data, setData] = useState<DataType[]>(arr);
+  const [data] = useState<DataType[]>(arr);
 
   const Table = useCallback(
     TableHOC<DataType>(
