@@ -14,18 +14,60 @@ import {
   FaGamepad,
   FaStopwatch,
 } from "react-icons/fa";
+import { useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Sidebar = () => {
   const location = useLocation();
 
-  return (
-    <aside>
-      <h2>ShopZen.</h2>
+  const [showNav, setShowNav] = useState<boolean>(false);
+  const [phoneActive, setPhoneActive] = useState<boolean>(
+    window.innerWidth < 1100
+  );
 
-      <DashboardLi location={location} />
-      <ChartsLi location={location} />
-      <AppsLi location={location} />
-    </aside>
+  return (
+    <>
+      {phoneActive && (
+        <button id="hamburger" onClick={() => setShowNav(true)}>
+          <RxHamburgerMenu />
+        </button>
+      )}
+      <aside
+        style={
+          phoneActive
+            ? {
+                width: "20rem",
+                height: "100vh",
+                position: "fixed",
+                top: 0,
+                left: showNav ? "0" : "-20rem",
+                transition: "all 0.5s",
+              }
+            : {
+                transition: "all 0.5s",
+              }
+        }
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <h2>ShopZen.</h2>
+          {phoneActive && (
+            <button id="close-sidebar" onClick={() => setShowNav(false)}>
+              X
+            </button>
+          )}
+        </div>
+
+        <DashboardLi location={location} />
+        <ChartsLi location={location} />
+        <AppsLi location={location} />
+      </aside>
+    </>
   );
 };
 
